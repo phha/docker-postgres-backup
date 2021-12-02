@@ -1,5 +1,6 @@
-FROM alpine:3.10
-RUN apk add --no-cache postgresql-client dcron tini
+FROM alpine:3.15
+ARG PGVERSION=14
+RUN apk add --no-cache dcron tini postgresql${PGVERSION}-client
 ENV PGHOST="db" \
     PGUSER="postgres" \
     PGDATABASE="postgres" \
